@@ -62,6 +62,8 @@ const posts = [
       "Searching for a job can be a daunting task, especially in a competitive job market. This blog post will offer valuable strategies for a successful career search, including resume building, networking, and interview preparation.",
   },
 ];
+//instead of returning UI, this route.ts will return a json object
+//at api/content
 
 import { NextResponse } from "next/server";
 
