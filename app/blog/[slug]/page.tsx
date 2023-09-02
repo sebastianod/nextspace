@@ -11,17 +11,21 @@ interface Props {
   params: { slug: string };
 }
 
+export async function generateStaticParams () {
+  try {
+    const response = await fetch("http://localhost:3000/api/content");
+    const posts: Post[] = await response.json();
+    return posts.find((post)=>({ slug: post.slug}));
+  } catch (error) {
+    return console.log("There was an error generating the static blog post page", error);
+  }
+}
+
 export default async function BlogPostPage({ params }: Props) {
   //deduped
   try {
     const response = await fetch("http://localhost:3000/api/content");
-
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
-
     const posts: Post[] = await response.json();
-
     const post = posts.find((post)=>post.slug === params.slug)! // ! means this is not null
 
     return (
