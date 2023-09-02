@@ -1,3 +1,5 @@
+export const revalidate = 420; //refresh page every 420s
+
 interface Post {
   //shape of each post
   title: string;
@@ -23,7 +25,7 @@ export default async function BlogPostPage({ params }: Props) {
     const post = posts.find((post)=>post.slug === params.slug)! // ! means this is not null
 
     return (
-      <div className="flex flex-col p-5  items-center justify-start">
+      <div className="flex flex-col p-5 items-center justify-start">
         <h1 className=" text-2xl mb-5">{post.title}</h1>
         <p className=" w-96">{post.content}</p>
       </div>
