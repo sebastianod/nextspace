@@ -1,6 +1,6 @@
 "use client";
 
-import { SessionProvider } from "next-auth/react"; //access to user session
+import { SessionProvider } from "next-auth/react"; //access to current user
 
 type Props = {
   children: React.ReactNode; //very broad, like saying any
