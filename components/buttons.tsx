@@ -39,13 +39,9 @@ export function SignOutButton() {
     signOut();
   };
 
-
   if (status === "authenticated") {
     return <button onClick={handleSignOut}>Sign out</button>;
-  }
-
-  else if (status === "unauthenticated" || "loading") {
+  } else if (status === "unauthenticated" || "loading") {
     return <></>;
   }
-  
 }
