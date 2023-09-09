@@ -1,3 +1,4 @@
+import { SignInButton, SignOutButton } from "@/components/buttons";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -12,7 +13,7 @@ export default function NavMenu() {
           alt="NextSpace Logo"
         />
       </Link>
-      <ul className="flex flex-row justify-between w-44">
+      <ul className="flex flex-row justify-between w-72 items-center">
         <li>
           <Link href={"/about"} className="text-white">About</Link>
         </li>
@@ -21,6 +22,12 @@ export default function NavMenu() {
         </li>
         <li>
           <Link href={"/users"} className="text-white">Users</Link>
+        </li>
+        <li className="text-white">
+          <SignInButton/>
+        </li>
+        <li className="text-white">
+          <SignOutButton/>
         </li>
       </ul>
     </nav>
