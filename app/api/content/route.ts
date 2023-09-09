@@ -66,7 +66,10 @@ const posts = [
 //at api/content
 
 import { NextResponse } from "next/server";
+import { getServerSession } from "next-auth"; //retrieves user server side
 
-export async function GET () { //created a GET endpoint
-    return NextResponse.json(posts); //It returns a json version of posts
+export async function GET() {
+  //created a GET endpoint
+  const session = await getServerSession(); // retrieve user
+  return NextResponse.json(posts); //It returns a json version of posts
 }
