@@ -9,15 +9,16 @@ export default async function UserProfile({ params }: Props) {
   const user = await prisma.user.findUnique({ where: { id: params.id } });
   const { name, bio, image } = user ?? {};
   return (
-    <div className=" flex flex-col p-2">
-      <h1>{name}</h1>
+    <div className=" flex flex-col p-5">
+      <h1 className=" text-4xl mb-3">{name}</h1>
       <img
         width={300}
         src={image ?? `/mememan.webp`}
         alt={`${name}'s profile`}
+        className=" mb-3"
       />
-      <h3>Bio</h3>
-      <p>{bio}</p>
+      <h3 className=" text-xl">Bio</h3>
+      <p>{bio ?? "This is a sample bio."}</p>
     </div>
   );
 }
