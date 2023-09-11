@@ -9,11 +9,11 @@ interface Props {
 
 export default function UserCard({ id, name, age, image }: Props) {
   return (
-    <div className=" bg-slate-100 flex flex-col justify-center items-start w-fit p-2">
+    <div className=" bg-slate-100 flex flex-col justify-center items-start w-fit p-2 rounded-md">
       <img
         alt={`${name}'s photo`}
         src={image ?? "/mememan.webp"}
-        className=" w-48 mb-3"
+        className=" w-48 mb-3 rounded-lg"
       />
       <div>
         <h3 className="text-xl mb-3">
