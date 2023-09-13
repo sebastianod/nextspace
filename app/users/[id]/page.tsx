@@ -28,7 +28,7 @@ export default async function UserProfile({ params }: Props) {
         className=" mb-3 rounded-lg"
       />
       <h3 className=" text-xl">Bio</h3>
-      <p>{bio ?? "This is a sample bio."}</p>
+      <p>{bio ?? "I'm a sample NextSpace participant's bio!"}</p>
     </div>
   );
 }
