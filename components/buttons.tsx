@@ -24,6 +24,7 @@ export function SignInButton() {
           width={32}
           height={32}
           alt="Your Name"
+          className=" rounded-full border-white border-dashed border-2"
         />
       </Link>
     );
