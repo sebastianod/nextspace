@@ -1,3 +1,4 @@
+import FollowServerButton from "@/components/FollowButton/FollowServerButton";
 import { prisma } from "@/lib/prisma";
 import { Metadata } from "next"; //to give the type of promise for generateMetadata
 
@@ -29,6 +30,7 @@ export default async function UserProfile({ params }: Props) {
       />
       <h3 className=" text-xl">Bio</h3>
       <p>{bio ?? "I'm a sample NextSpace participant's bio!"}</p>
+      <FollowServerButton targetUserId={params.id}/>
     </div>
   );
 }

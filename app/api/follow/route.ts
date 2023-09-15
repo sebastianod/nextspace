@@ -6,7 +6,7 @@ import { prisma } from "@/lib/prisma";
 export async function POST(req: Request) {
   const session = await getServerSession(authOptions);
   const currentUserEmail = session?.user?.email!;
-  const { userToFollowId } = await req.json();
+  const { targetUserId } = await req.json();
 
   //currentUser and userToFollow's ids make the following-relation's unique id= CUid+UFid
   //so let's find the currentUser's id
@@ -16,7 +16,7 @@ export async function POST(req: Request) {
 
   //Create the follows relationship and show a record of it
   const record = await prisma.follows.create({
-    data: { followerId: currentUserEmail, followingId: userToFollowId },
+    data: { followerId: currentUserId, followingId: targetUserId },
   });
   return NextResponse.json(record);
 }
@@ -24,7 +24,7 @@ export async function POST(req: Request) {
 export async function DELETE(req: NextRequest) {
   const session = await getServerSession(authOptions);
   const currentUserEmail = session?.user?.email!;
-  const userToFollowId = req.nextUrl.searchParams.get("userToFollowId");
+  const targetUserId = req.nextUrl.searchParams.get("targetUserId");
 
   const currentUserId = await prisma.user
     .findUnique({ where: { email: currentUserEmail } })
@@ -34,7 +34,7 @@ export async function DELETE(req: NextRequest) {
     where: {
       followerId_followingId: {
         followerId: currentUserId,
-        followingId: userToFollowId!,
+        followingId: targetUserId!,
       },
     },
   });

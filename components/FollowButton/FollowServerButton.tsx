@@ -6,7 +6,7 @@ interface Props {
   targetUserId: string;
 }
 
-export default async function FollowButton({ targetUserId }: Props) {
+export default async function FollowServerButton({ targetUserId }: Props) {
   const session = await getServerSession();
 
   const currentUserId = await prisma.user

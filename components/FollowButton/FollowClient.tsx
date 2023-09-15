@@ -53,14 +53,14 @@ export default function FollowClient({ targetUserId, isFollowing }: Props) {
 
     if (isFollowing) {
         return (
-            <button onClick={unfollow}>
+            <button className=' flex items-start border rounded w-32 justify-center text-white bg-red-600' onClick={unfollow}>
                 {!isMutating ? 'Unfollow' : '...'}
             </button>
         )
 
     } else {
         return (
-            <button onClick={follow}>
+            <button className=' flex items-start border rounded w-32 justify-center text-white bg-blue-600' onClick={follow}>
                 {!isMutating ? 'Follow' : '...'}
             </button>
         )

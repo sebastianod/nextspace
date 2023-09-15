@@ -1,3 +1,3 @@
 export default function LoadingUsers () {
-    return <span>...Loading users...</span>
+    return <span className="m-3">Loading users...</span>
 }
